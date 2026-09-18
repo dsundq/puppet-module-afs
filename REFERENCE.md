@@ -18,6 +18,13 @@
 
 afs class
 
+DKMS:
+  Builds the module if it does not exist.
+
+kmod:
+  Module already exists.
+  Exec is skipped.
+
 #### Examples
 
 ##### Declaring the class
