@@ -47,6 +47,13 @@ afs::afs_cellserverdb: |
 OpenAFS will be configured with ThisCell `afs.domain.tld` with CellServDB
 `afs.domain.tld`.
 
+On Enterprise Linux (RedHat family) the CellServDB content is written to
+`/usr/vice/etc/CellServDB.local` instead of the active `/usr/vice/etc/CellServDB`.
+The openafs-client start script merges `CellServDB.local` and `CellServDB.dist`
+into the active `CellServDB`, so the active file is only regenerated when the
+cell content changes and is not overwritten on every client restart. On other
+platforms the active `CellServDB` is managed directly.
+
 #### Manage symlinks for AFS
 
 Symlinks can be created if required.

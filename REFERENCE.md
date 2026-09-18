@@ -57,7 +57,13 @@ The following parameters are available in the `afs` class:
 
 Data type: `Optional[String]`
 
-String defining CellServDB. Content of file $afs_config_path/CellServDB.
+String defining CellServDB.
+On Enterprise Linux (RedHat family) this content is written to
+$afs_config_path/CellServDB.local, which the openafs-client start script
+merges with CellServDB.dist into the active $afs_config_path/CellServDB.
+This avoids the active CellServDB being overwritten on every client restart;
+it is only regenerated when the cell content changes.
+On all other platforms the content is written to $afs_config_path/CellServDB.
 This file will be ignored if the default value is not changed.
 
 Default value: `undef`
